@@ -56,7 +56,7 @@ public class GetWorker extends Worker {
         PRINTS OUT:
         ((`size` = 5 OR `shape` = `circle`) OR ((`size` = 5 OR `shape` = `circle`) AND `height` = 7))*/
 
-        String sqlArg = "SELECT * FROM " + getTable().name() + (getConditions() == null ? "" : " WHERE " + getConditions().toString());
+        String sqlArg = "SELECT * FROM " + getTable().getTableCasing() + (getConditions() == null ? "" : " WHERE " + getConditions().toString());
         try {
             putResultIntoList(getStatement().executeQuery(sqlArg));
         } catch (Exception e) {
@@ -78,7 +78,7 @@ public class GetWorker extends Worker {
             items = list;
         } catch (Exception e) {
             e.printStackTrace();
-            Utils.log("Could not parse returned list from " + getTable().name() + " table.");
+            Utils.log("Could not parse returned list from " + getTable().getTableCasing() + " table.");
         }
     }
 }

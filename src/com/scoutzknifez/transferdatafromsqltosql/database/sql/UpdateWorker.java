@@ -31,7 +31,7 @@ public class UpdateWorker extends Worker {
     }
 
     private void doUpdate() {
-        String sqlArg = "UPDATE " + getTable().name() +
+        String sqlArg = "UPDATE " + getTable().getTableCasing() +
                 " SET `" + getField() + "` = " +
                 (getValue() instanceof String ? "\"" + getValue() + "\"" : getValue()) +
                 //(conditions == null ? "" : " WHERE " + getConditions().toString()); TODO Maybe use this (Trying to think of a case where blank is preferred)
@@ -40,7 +40,7 @@ public class UpdateWorker extends Worker {
         try {
             getStatement().execute(sqlArg);
         } catch (Exception e) {
-            Utils.log("Failed to update on table " + getTable().name() + ")" + " updating item with conditions of " + conditions.toString());
+            Utils.log("Failed to update on table " + getTable().getTableCasing() + ")" + " updating item with conditions of " + conditions.toString());
         }
     }
 }

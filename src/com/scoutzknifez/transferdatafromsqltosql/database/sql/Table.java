@@ -1,6 +1,6 @@
 package com.scoutzknifez.transferdatafromsqltosql.database.sql;
 
-import com.scoutzknifez.transferdatafromsqltosql.structures.dto.WeatherForTime;
+import com.scoutzknifez.transferdatafromsqltosql.structures.dto.*;
 import com.scoutzknifez.transferdatafromsqltosql.database.sql.insertion.Databasable;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +16,13 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Table {
-    WEATHER_FOR_TIME(WeatherForTime.class);
+    INVENTORIES(InventorySlot.class, "inventories"),
+    PRODUCTS(Product.class, "products"),
+    PRODUCT_IMAGES(ProductImage.class, "product_images"),
+    PRODUCT_REVIEWS(ProductReview.class, "product_reviews"),
+    USERS(User.class, "users"),
+    WEATHER_FOR_TIME(WeatherForTime.class, "WEATHER_FOR_TIME");
 
     private Class constructorClass;
+    private String tableCasing;
 }
