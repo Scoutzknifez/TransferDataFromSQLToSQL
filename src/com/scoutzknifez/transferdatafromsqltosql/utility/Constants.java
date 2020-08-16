@@ -10,4 +10,7 @@ public class Constants {
 
     // Driver loader
     public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+
+    // Database name
+    public static String DATABASE_NAME;
 }

@@ -4,8 +4,23 @@ import com.scoutzknifez.transferdatafromsqltosql.structures.TimeAtMoment;
 
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Utils {
+    /**
+     * Capitalize every letter after a space.
+     * @param   sentence The sentence to capitalize.
+     * @return  capitalized phrase
+     */
+    public static String capitalize(String sentence) {
+        String[] split = sentence.replaceAll("_", " ").split(" ");
+        List<String> out = new ArrayList<>();
+        for (String s : split)
+            out.add(s.length() > 0 ? s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase() : "");
+        return String.join(" ", out);
+    }
+
     public static double getRoundedInt(String string) {
         return getRoundedInt(getDouble(string));
     }
